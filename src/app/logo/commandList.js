@@ -7,14 +7,19 @@ angular.module('logo').factory('commandList', function(commandFactory) {
     },
       addMove: function(distance) {
           console.log('addMove');
-
-          this.commands.push(commandFactory.moveFactory(distance));
+          var command = commandFactory.moveFactory(distance);
+          this.commands.push(command);
+          return command;
       },
       addLeft: function(degrees) {
-          this.commands.push(commandFactory.leftFactory(degrees));
+          var command = commandFactory.leftFactory(degrees);
+          this.commands.push(command);
+          return command;
       },
       addRight: function(degrees) {
-          this.commands.push(commandFactory.rightFactory(degrees));
+          var command = commandFactory.rightFactory(degrees);
+          this.commands.push(command);
+          return command;
       }
   };
 });

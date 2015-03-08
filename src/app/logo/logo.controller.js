@@ -3,17 +3,17 @@ angular.module('logo').controller('LogoController', function ($state, $scope, co
     $scope.commands = commandList.list();
 //    $scope.addMove = commandList.addMove;
     $scope.addMove = function(distance) {
-        commandList.addMove(distance);
-        move(20);
+        var command = commandList.addMove(distance);
+        move(command.distance);
     };
     $scope.addLeft = function(degrees) {
-        commandList.addLeft(degrees);
-        $scope.currentHeading -= 30;
+        var command = commandList.addLeft(degrees);
+        $scope.currentHeading -= command.degrees;
         $scope.currentAngle = $scope.currentHeading * Math.PI / 180;
     };
     $scope.addRight = function(degrees) {
-        commandList.addRight(degrees);
-        $scope.currentHeading += 30;
+        var command = commandList.addRight(degrees);
+        $scope.currentHeading += command.degrees;
         $scope.currentAngle = $scope.currentHeading * Math.PI / 180;
     };
 
