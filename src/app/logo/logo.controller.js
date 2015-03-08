@@ -6,8 +6,16 @@ angular.module('logo').controller('LogoController', function ($state, $scope, co
         commandList.addMove(distance);
         move(20);
     };
-    $scope.addLeft = commandList.addLeft;
-    $scope.addRight = commandList.addRight;
+    $scope.addLeft = function(degrees) {
+        commandList.addLeft(degrees);
+        $scope.currentHeading -= 30;
+        $scope.currentAngle = $scope.currentHeading * Math.PI / 180;
+    };
+    $scope.addRight = function(degrees) {
+        commandList.addRight(degrees);
+        $scope.currentHeading += 30;
+        $scope.currentAngle = $scope.currentHeading * Math.PI / 180;
+    };
 
     $scope.currentX = 300;
     $scope.currentY = 300;
@@ -21,17 +29,16 @@ angular.module('logo').controller('LogoController', function ($state, $scope, co
     }
 
     function move(distance) {
+        // color
         var ctx  = $("canvas")[0].getContext("2d");
         console.log(ctx);
         ctx.moveTo($scope.currentX, $scope.currentY);
-        // to
-        ctx.lineTo($scope.currentX + distance, $scope.currentY);
-        // color
-        console.log('drawing from ', $scope.currentX, $scope.currentY, ' to ', $scope.currentX + distance, $scope.currentY);
+        ctx.lineTo($scope.currentX + distance * Math.cos($scope.currentAngle), $scope.currentY + distance * Math.sin($scope.currentAngle));
         ctx.lineWidth = 7;
         ctx.strokeStyle = "#000";
         // draw it
         ctx.stroke();
-        $scope.currentX += distance;
+        $scope.currentX += distance * Math.cos($scope.currentAngle);
+        $scope.currentY += distance * Math.sin($scope.currentAngle);
     }
 });
