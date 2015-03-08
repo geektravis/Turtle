@@ -15,6 +15,9 @@ angular.module('logo').factory('commandFactory', function() {
         name: 'move',
         execute: function() {
             alert('moving ' + this.distance);
+        },
+        display: function() {
+            return this.distance;
         }
     });
 
@@ -22,14 +25,22 @@ angular.module('logo').factory('commandFactory', function() {
         name: 'left',
         execute: function() {
             alert('turning left ' + this.degrees);
+        },
+        display: function() {
+            return this.degrees;
         }
+
     });
 
     var rightCommand = _.create(command, {
         name: 'right',
         execute: function() {
             alert('turning right ' + this.degrees);
+        },
+        display: function() {
+            return this.degrees;
         }
+
     });
 
     return factory;

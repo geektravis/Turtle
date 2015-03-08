@@ -20,6 +20,7 @@ angular.module('logo').controller('LogoController', function ($state, $scope, co
     $scope.currentX = 300;
     $scope.currentY = 300;
     $scope.currentHeading = 0;
+    $scope.currentAngle = 0;
     $scope.lineWidth = 1;
     $scope.lineColor = 'black';
     $scope.penDown = true;
