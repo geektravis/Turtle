@@ -1,1 +1,14 @@
-<div>{{command.name}}: {{command.display()}}</div>
+<div>
+    {{command.name}}
+    <div ng-switch="command.name">
+        <div ng-switch-when="move">
+            <input type="text" ng-model="command.distance">
+        </div>
+        <div ng-switch-when="left">
+            <input type="text" ng-model="command.degrees">
+        </div>
+        <div ng-switch-when="right">
+            <input type="text" ng-model="command.degrees">
+        </div>
+    </div>
+</div>
