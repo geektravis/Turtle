@@ -15,6 +15,17 @@ angular.module('logo').controller('LogoController', function ($state, $scope, co
         return commandList.addRight(degrees);
     };
 
+    $scope.clearCanvas = function() {
+        var ctx = getContext();
+        ctx.beginPath();
+        $scope.currentX = 300;
+        $scope.currentY = 300;
+        $scope.currentHeading = 0;
+        $scope.currentAngle = 0;
+        var canvas = $("canvas")[0];
+        ctx.clearRect ( 0 , 0 , canvas.width, canvas.height );
+    };
+    
     $scope.currentX = 300;
     $scope.currentY = 300;
     $scope.currentHeading = 0;
@@ -23,8 +34,12 @@ angular.module('logo').controller('LogoController', function ($state, $scope, co
     $scope.lineColor = 'black';
     $scope.penDown = true;
 
-    function test() {
-        console.log('test from turtleCanvas'); 
+
+    function getCanvas() {
+        return $("canvas")[0];
+    }
+    function getContext() {
+        return getCanvas().getContext("2d");
     }
 
     function left(degrees) {
@@ -39,7 +54,7 @@ angular.module('logo').controller('LogoController', function ($state, $scope, co
 
     function move(distance) {
         // color
-        var ctx  = $("canvas")[0].getContext("2d");
+        var ctx = getContext();
         console.log(ctx);
         ctx.moveTo($scope.currentX, $scope.currentY);
         ctx.lineTo($scope.currentX + distance * Math.cos($scope.currentAngle), $scope.currentY + distance * Math.sin($scope.currentAngle));
