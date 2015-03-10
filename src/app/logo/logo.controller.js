@@ -7,14 +7,12 @@ angular.module('logo').controller('LogoController', function ($state, $scope, co
         move(command.distance);
     };
     $scope.addLeft = function(degrees) {
-        var command = commandList.addLeft(degrees);
-        $scope.currentHeading -= command.degrees;
-        $scope.currentAngle = $scope.currentHeading * Math.PI / 180;
+        left(degrees);
+        return commandList.addLeft(degrees);
     };
     $scope.addRight = function(degrees) {
-        var command = commandList.addRight(degrees);
-        $scope.currentHeading += command.degrees;
-        $scope.currentAngle = $scope.currentHeading * Math.PI / 180;
+        right(degrees);
+        return commandList.addRight(degrees);
     };
 
     $scope.currentX = 300;
@@ -26,7 +24,17 @@ angular.module('logo').controller('LogoController', function ($state, $scope, co
     $scope.penDown = true;
 
     function test() {
-        console.log('test from turtleCanvas');
+        console.log('test from turtleCanvas'); 
+    }
+
+    function left(degrees) {
+        $scope.currentHeading -= degrees;
+        $scope.currentAngle = $scope.currentHeading * Math.PI / 180;
+    }
+
+    function right(degrees) {
+        $scope.currentHeading += degrees;
+        $scope.currentAngle = $scope.currentHeading * Math.PI / 180;
     }
 
     function move(distance) {
