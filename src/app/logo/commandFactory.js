@@ -13,8 +13,8 @@ angular.module('logo').factory('commandFactory', function() {
 
     var moveCommand = _.create(command, {
         name: 'move',
-        execute: function() {
-            alert('moving ' + this.distance);
+        execute: function(turtle) {
+            turtle.move(this.distance);
         },
         display: function() {
             return this.distance;
@@ -23,8 +23,8 @@ angular.module('logo').factory('commandFactory', function() {
 
     var leftCommand = _.create(command, {
         name: 'left',
-        execute: function() {
-            alert('turning left ' + this.degrees);
+        execute: function(turtle) {
+            turtle.left(this.degrees);
         },
         display: function() {
             return this.degrees;
@@ -34,8 +34,8 @@ angular.module('logo').factory('commandFactory', function() {
 
     var rightCommand = _.create(command, {
         name: 'right',
-        execute: function() {
-            alert('turning right ' + this.degrees);
+        execute: function(turtle) {
+            turtle.right(this.degrees);
         },
         display: function() {
             return this.degrees;
