@@ -65,12 +65,12 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
     }
 
     function left(degrees) {
-        currentHeading -= parseInt(degrees);
+        currentHeading -= parseFloat(degrees);
         currentAngle = currentHeading * Math.PI / 180;
     }
 
     function right(degrees) {
-        currentHeading += parseInt(degrees);
+        currentHeading += parseFloat(degrees);
         currentAngle = currentHeading * Math.PI / 180;
     }
 
