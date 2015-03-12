@@ -1,4 +1,6 @@
-angular.module('logo').controller('TurtleCanvasController', function ($scope, TurtleCanvasService) {
+angular.module('logo').controller('TurtleCanvasController', function ($scope, turtleCanvasDraw, commandList) {
 
-    $scope.redraw = TurtleCanvasService.redraw;
+    $scope.redraw = function() {
+        return turtleCanvasDraw(commandList.list());
+    };
 });

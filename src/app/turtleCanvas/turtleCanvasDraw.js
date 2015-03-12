@@ -1,4 +1,4 @@
-angular.module('logo').factory('TurtleCanvasService', function (commandList) {
+angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
 
     var currentX = 300;
     var currentY = 300;
@@ -13,10 +13,7 @@ angular.module('logo').factory('TurtleCanvasService', function (commandList) {
         move: move
     };
 
-    var service = {
-        redraw: redraw
-    };
-    return service;
+    return draw;
 
     function clearCanvas() {
         var ctx = getContext();
@@ -31,9 +28,9 @@ angular.module('logo').factory('TurtleCanvasService', function (commandList) {
 
 
 
-    function redraw() {
+    function draw(commands) {
         clearCanvas();
-        _.each(commandList.list(), function(command) {
+        _.each(commands, function(command) {
             command.execute(commandModule);
         });
     }
