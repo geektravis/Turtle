@@ -23,7 +23,7 @@ angular.module('logo').controller('TurtleCanvasController', function ($scope, co
     $scope.redraw = function() {
         $scope.clearCanvas();
         _.each(commandList.list(), function(command) {
-           command.execute($scope);
+           command.execute(commandModule);
         });
     };
 
@@ -34,9 +34,11 @@ angular.module('logo').controller('TurtleCanvasController', function ($scope, co
         return getCanvas().getContext("2d");
     }
 
-    $scope.left = left;
-    $scope.right = right;
-    $scope.move = move;
+    var commandModule = {
+        left: left,
+        right: right,
+        move: move
+    };
     function left(degrees) {
         $scope.currentHeading -= degrees;
         $scope.currentAngle = $scope.currentHeading * Math.PI / 180;
