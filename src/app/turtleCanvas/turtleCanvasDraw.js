@@ -50,6 +50,7 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
     function draw(commands) {
         clear();
         _.each(commands, function(command) {
+            console.log(getStatus());
             command.execute(commandModule);
         });
     }
@@ -64,12 +65,12 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
     }
 
     function left(degrees) {
-        currentHeading -= degrees;
+        currentHeading -= parseInt(degrees);
         currentAngle = currentHeading * Math.PI / 180;
     }
 
     function right(degrees) {
-        currentHeading += degrees;
+        currentHeading += parseInt(degrees);
         currentAngle = currentHeading * Math.PI / 180;
     }
 
