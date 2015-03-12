@@ -13,7 +13,23 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
         move: move
     };
 
-    return draw;
+    var service = {
+        draw: draw,
+        getStatus: getStatus
+    };
+    return service;
+
+    function getStatus() {
+        return {
+            currentX: currentX,
+            currentY: currentY,
+            currentAngle: currentAngle,
+            currentHeading: currentHeading,
+            lineWidth: lineWidth,
+            lineColor: lineColor,
+            penDown: penDown
+        };
+    }
 
     function clearCanvas() {
         var ctx = getContext();
