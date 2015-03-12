@@ -15,7 +15,8 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
 
     var service = {
         draw: draw,
-        getStatus: getStatus
+        getStatus: getStatus,
+        clear: clear
     };
     return service;
 
@@ -31,21 +32,23 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
         };
     }
 
-    function clearCanvas() {
-        var ctx = getContext();
-        ctx.beginPath();
+    function clear() {
         currentX = 300;
         currentY = 300;
         currentHeading = 0;
         currentAngle = 0;
-        var canvas = $("canvas")[0];
-        ctx.clearRect ( 0 , 0 , canvas.width, canvas.height );
+        var ctx = getContext();
+        if (ctx) {
+            ctx.beginPath();
+            var canvas = $("canvas")[0];
+            ctx.clearRect ( 0 , 0 , canvas.width, canvas.height );
+        }
     }
 
 
 
     function draw(commands) {
-        clearCanvas();
+        clear();
         _.each(commands, function(command) {
             command.execute(commandModule);
         });
@@ -55,7 +58,9 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
         return $("canvas")[0];
     }
     function getContext() {
-        return getCanvas().getContext("2d");
+        if (getCanvas()) {
+            return getCanvas().getContext("2d");
+        }
     }
 
     function left(degrees) {
@@ -71,13 +76,14 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
     function move(distance) {
         // color
         var ctx = getContext();
-        console.log(ctx);
-        ctx.moveTo(currentX, currentY);
-        ctx.lineTo(currentX + distance * Math.cos(currentAngle), currentY + distance * Math.sin(currentAngle));
-        ctx.lineWidth = 7;
-        ctx.strokeStyle = "#000";
-        // draw it
-        ctx.stroke();
+        if (ctx) {
+            ctx.moveTo(currentX, currentY);
+            ctx.lineTo(currentX + distance * Math.cos(currentAngle), currentY + distance * Math.sin(currentAngle));
+            ctx.lineWidth = 7;
+            ctx.strokeStyle = "#000";
+            // draw it
+            ctx.stroke();
+        }
         currentX += distance * Math.cos(currentAngle);
         currentY += distance * Math.sin(currentAngle);
     }
