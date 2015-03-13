@@ -4,7 +4,13 @@
     <div>Angle: {{currentAngle}}</div>
     <div>x: {{currentX}}</div>
     <div>y: {{currentY}}</div>
-    <div ng-repeat="command in commands">
-        <div command-display></div>
+    <ul  data-as-sortable="dragControlListeners" data-ng-model="commands">
+        <li data-ng-repeat="command in commands" data-as-sortable-item>
+            <div data-as-sortable-item-handle>
+                <div command-display></div>
+
+            </div>
+        </li>
+    </ul>
     </div>
 </div>

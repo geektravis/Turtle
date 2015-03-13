@@ -64,9 +64,11 @@ module.exports = {
       'bower_components/angular/angular.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
-      'bower_components/angular-ui-utils/modules/route/route.js'
+      'bower_components/angular-ui-utils/modules/route/route.js',
+        'bower_components/ng-sortable/dist/ng-sortable.js'
     ],
     css: [
+        'bower_components/ng-sortable/dist/ng-sortable.css'
     ],
     assets: [
     ]

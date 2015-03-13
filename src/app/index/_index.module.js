@@ -1,5 +1,6 @@
 angular.module('index', [
   'ui.router',
   'common',
-  'logo'
+  'logo',
+    'ui.sortable'
 ]);
