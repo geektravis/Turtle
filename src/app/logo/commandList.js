@@ -22,6 +22,11 @@ angular.module('logo').factory('commandList', function (commandFactory) {
             var command = commandFactory.rightFactory(degrees);
             commands.push(command);
             return command;
+        },
+        deleteCommand: function(index) {
+            console.log('deleting...');
+            commands.splice(index,1);
         }
+
     };
 });
