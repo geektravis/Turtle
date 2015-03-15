@@ -28,7 +28,7 @@ describe('logo', function () {
                 expect(endStatus.currentX).to.equal(startStatus.currentX);
             }));
         });
-        describe('left', function () {
+        describe('right', function () {
             it('should move current position south after a right command', inject(function (turtleCanvasDraw, commandFactory) {
                 var startStatus = turtleCanvasDraw.getStatus();
                 var right = commandFactory.rightFactory(90);
