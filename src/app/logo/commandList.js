@@ -22,7 +22,8 @@ angular.module('logo').factory('commandList', function (commandFactory) {
             return command;
         },
         deleteCommand: function(index) {
-            commands.splice(index,1);
+            console.log('deleting', index);
+            commands.splice(index-1,1);
         }
 
     };
