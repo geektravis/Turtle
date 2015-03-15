@@ -46,7 +46,6 @@ angular.module('logo').factory('commandFactory', function() {
     return factory;
 
     function moveFactory(distance) {
-        console.log('moveFactory');
         return _.create(moveCommand, {distance: distance});
     }
 

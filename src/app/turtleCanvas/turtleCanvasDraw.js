@@ -50,7 +50,6 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
     function draw(commands) {
         clear();
         _.each(commands, function(command) {
-            console.log(getStatus());
             command.execute(commandModule);
         });
     }

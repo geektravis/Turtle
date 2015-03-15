@@ -1,5 +1,4 @@
 angular.module('logo').factory('commandList', function (commandFactory) {
-    console.log('commandListFactoryFactory');
 
     var commands = [];
 
@@ -8,7 +7,6 @@ angular.module('logo').factory('commandList', function (commandFactory) {
             return commands;
         },
         addMove: function (distance) {
-            console.log('addMove');
             var command = commandFactory.moveFactory(distance);
             commands.push(command);
             return command;
@@ -24,7 +22,6 @@ angular.module('logo').factory('commandList', function (commandFactory) {
             return command;
         },
         deleteCommand: function(index) {
-            console.log('deleting...');
             commands.splice(index,1);
         }
 

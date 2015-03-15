@@ -1,7 +1,5 @@
     angular.module('logo').controller('LogoController', function ($state, $scope, commandList) {
-        console.log('Logo controller');
         $scope.commands = commandList.list();
-    //    $scope.addMove = commandList.addMove;
         $scope.addMove = function (distance) {
             return commandList.addMove(distance);
         };
