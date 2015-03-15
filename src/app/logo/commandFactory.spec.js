@@ -1,22 +1,30 @@
-//describe('rectangle', function() {
-//  beforeEach(module('templates-app'));
-//  beforeEach(module('common'));
-//  beforeEach(module('rectangle'));
-//
-//  describe("rectangleFactory", function() {
-//    it("should calculate area", inject(function(rectangleFactory) {
-//      var rectangle = rectangleFactory({
-//        width: 4,
-//        height: 5
-//      });
-//
-//      expect(rectangle.area()).to.equal(20);
-//    }));
-//
-//    it("should have a default color", inject(function(rectangleFactory) {
-//      var rectangle = rectangleFactory();
-//
-//      expect(rectangle.color).to.have.length(7); //like #FFFFFF
-//    }));
-//  });
-//});
+describe('logo', function () {
+    beforeEach(module('common'));
+    beforeEach(module('logo'));
+
+
+    describe('commandFactory', function () {
+        describe('moveFactory', function () {
+            it('should return a move command', inject(function (commandFactory) {
+                var command = commandFactory.moveFactory(123);
+                expect(command.name).to.equal('move');
+                expect(command.distance).to.equal(123);
+            }));
+        });
+        describe('leftFactory', function () {
+            it('should return a left command', inject(function (commandFactory) {
+                var command = commandFactory.leftFactory(45);
+                expect(command.name).to.equal('left');
+                expect(command.degrees).to.equal(45);
+            }));
+        });
+        describe('rightFactory', function () {
+            it('should return a right command', inject(function (commandFactory) {
+                var command = commandFactory.rightFactory(90);
+                expect(command.name).to.equal('right');
+                expect(command.degrees).to.equal(90);
+            }));
+        });
+
+    });
+});
