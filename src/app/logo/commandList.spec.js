@@ -32,16 +32,18 @@ describe('logo', function () {
         });
         describe('deleteCommand', function () {
             it("should delete a  command", inject(function (commandList) {
-                var right = commandList.addRight(45);
-                var move = commandList.addMove(123);
-                var left = commandList.addLeft(90);
-                var move2 = commandList.addMove(234);
+                var cmd1 = commandList.addRight(45);
+                var cmd2= commandList.addMove(123);
+                var cmd3= commandList.addLeft(90);
+                var cmd4= commandList.addMove(234);
 
-                commandList.deleteCommand(2);
+                commandList.deleteCommand(3);
                 expect(commandList.list().length).to.equal(3);
-                expect(commandList.list()[0]).to.equal(right);
-                expect(commandList.list()[1]).to.equal(move);
-                expect(commandList.list()[2]).to.equal(move2);
+                console.log(commandList.list()[0]);
+                console.log(cmd1);
+                expect(commandList.list()[0]).to.equal(cmd1);
+                expect(commandList.list()[1]).to.equal(cmd2);
+                expect(commandList.list()[2]).to.equal(cmd4);
 
 
             }));
