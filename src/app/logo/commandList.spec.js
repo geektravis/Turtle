@@ -37,7 +37,7 @@ describe('logo', function () {
                 var cmd3= commandList.addLeft(90);
                 var cmd4= commandList.addMove(234);
 
-                commandList.deleteCommand(3);
+                commandList.deleteCommand(2);
                 expect(commandList.list().length).to.equal(3);
                 console.log(commandList.list()[0]);
                 console.log(cmd1);

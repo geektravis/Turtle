@@ -23,7 +23,7 @@ angular.module('logo').factory('commandList', function (commandFactory) {
         },
         deleteCommand: function(index) {
             console.log('deleting', index);
-            commands.splice(index-1,1);
+            commands.splice(index,1);
         }
 
     };
