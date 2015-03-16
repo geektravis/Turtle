@@ -57,6 +57,9 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
     function getCanvas() {
         return $("canvas")[0];
     }
+    function getTurtleSprite() {
+        return $("#turtleSprite")[0];
+    }
     function getContext() {
         if (getCanvas()) {
             return getCanvas().getContext("2d");
@@ -84,7 +87,13 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
             // draw it
             ctx.stroke();
         }
+        var turtle = getTurtleSprite();
         currentX += distance * Math.cos(currentAngle);
         currentY += distance * Math.sin(currentAngle);
+        if (turtle) {
+            console.log('found the turtle', turtle.style);
+            turtle.style.top = currentY + 'px';
+            turtle.style.left = (currentX - 25) + 'px';
+        }
     }
 });
