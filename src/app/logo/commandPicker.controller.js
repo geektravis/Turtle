@@ -1,4 +1,4 @@
-angular.module('logo').controller('CommandPickerController', function ($scope) {
+angular.module('logo').controller('CommandPickerController', function ($scope, $log) {
 
     $scope.items = [
         'The first choice!',
