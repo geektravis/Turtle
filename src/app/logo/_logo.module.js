@@ -1,3 +1,4 @@
 angular.module('logo', [
-  'ui.router'
+  'ui.router',
+    'ui.bootstrap'
 ]);

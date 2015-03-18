@@ -11,15 +11,15 @@ angular.module('logo').controller('CommandPickerController', function ($scope, $
     };
 
     $scope.toggled = function(open) {
-        $log.log('Dropdown is now: ', open);
+        console.log('Dropdown is now: ', open);
     };
 
     $scope.toggleDropdown = function($event) {
+        console.log('toggle!');
         $event.preventDefault();
         $event.stopPropagation();
         $scope.status.isopen = !$scope.status.isopen;
     };
-
 
 
 });
