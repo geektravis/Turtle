@@ -1,18 +1,44 @@
-<div ng-controller="CommandPickerController">
-    <div class="btn-group" dropdown is-open="status.isopen">
+<div >
+    <div class="btn-group" dropdown is-open="status.isLeftOpen">
         <button type="button"  dropdown-toggle class="btn btn-primary">
-           Move
+            Left
         </button>
         <ul class="dropdown-menu" role="menu">
-            <li><a href="#">100</a></li>
-            <li><a href="#">200</a></li>
-            <li><a href="#">300</a></li>
-            <li><a href="#">400</a></li>
-            <li><a href="#">500</a></li>
+            <li><span ng-click="addLeft(30)">30</span></li>
+            <li><span ng-click="addLeft(45)">45</span></li>
+            <li><span ng-click="addLeft(60)">60</span></li>
+            <li><span ng-click="addLeft(90)">90</span></li>
+            <li><span ng-click="addLeft(120)">120</span></li>
+            <li><span ng-click="addLeft(135)">135</span></li>
+            <li><span ng-click="addLeft(150)">150</span></li>
         </ul>
     </div>
-    <button class="btn-lg add-command" ng-click="clearCanvas()">CLEAR</button>
-    <button class="btn-lg add-command" ng-click="addLeft(90)"><--</button>
-    <button class="btn-lg add-command" ng-click="addMove(100)">&#8593;</button>
-    <button class="btn-lg add-command" ng-click="addRight(90)">--></button>
+    <div class="btn-group" dropdown is-open="status.isMoveOpen">
+        <button type="button"  dropdown-toggle class="btn btn-primary">
+            Move
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><span ng-click="addMove(50)">50</span></li>
+            <li><span ng-click="addMove(100)">100</span></li>
+            <li><span ng-click="addMove(200)">200</span></li>
+            <li><span ng-click="addMove(300)">300</span></li>
+            <li><span ng-click="addMove(400)">400</span></li>
+            <li><span ng-click="addMove(500)">500</span></li>
+        </ul>
+    </div>
+    <div class="btn-group" dropdown is-open="status.isRightOpen">
+        <button type="button"  dropdown-toggle class="btn btn-primary">
+            Right
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><span ng-click="addRight(30)">30</span></li>
+            <li><span ng-click="addRight(45)">45</span></li>
+            <li><span ng-click="addRight(60)">60</span></li>
+            <li><span ng-click="addRight(90)">90</span></li>
+            <li><span ng-click="addRight(120)">120</span></li>
+            <li><span ng-click="addRight(135)">135</span></li>
+            <li><span ng-click="addRight(150)">150</span></li>
+        </ul>
+    </div>
+    <button class="btn btn-primary add-command" ng-click="clearCanvas()">CLEAR</button>
 </div>
