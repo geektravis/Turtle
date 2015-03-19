@@ -35,8 +35,8 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
     function clear() {
         currentX = 300;
         currentY = 300;
-        currentHeading = 270;
-        currentAngle = 4.71238898;
+        currentHeading = 0;
+        currentAngle = 0;
         var ctx = getContext();
         if (ctx) {
             ctx.beginPath();
@@ -67,8 +67,10 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
     }
 
     function left(degrees) {
+        console.log('turning left ', degrees, 'from ', currentHeading);
         currentHeading = (360 + currentHeading - parseFloat(degrees)) % 360;
         currentAngle = currentHeading * Math.PI / 180;
+        console.log('turned left ', degrees, ' to ', currentHeading);
         orient();
     }
 
@@ -82,12 +84,13 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
         var turtle = getTurtleSprite();
         console.log('orienting to: ', currentHeading);
         if (turtle) {
-            turtle.style.transform = 'rotate(' + (currentHeading - 180) + 'deg)';
+            turtle.style.transform = 'rotate(' + (currentHeading) + 'deg)';
         }
     }
 
     function move(distance) {
         // color
+        console.log(getStatus);
         var ctx = getContext();
         if (ctx) {
             ctx.moveTo(currentX, currentY);
@@ -102,7 +105,7 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
         currentY += distance * Math.sin(currentAngle);
         if (turtle) {
             console.log('found the turtle', turtle.style);
-            turtle.style.top = currentY + 'px';
+            turtle.style.top = (currentY -25) + 'px';
             turtle.style.left = (currentX - 25) + 'px';
         }
     }
