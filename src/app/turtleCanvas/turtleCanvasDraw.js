@@ -16,7 +16,8 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
     var service = {
         draw: draw,
         getStatus: getStatus,
-        clear: clear
+        clear: clear,
+        orient: orient
     };
     return service;
 
@@ -80,11 +81,12 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
         orient();
     }
 
-    function orient() {
+    function orient(degrees) {
+        degrees = degrees || 0;
         var turtle = getTurtleSprite();
-        console.log('orienting to: ', currentHeading);
+        console.log('orienting to: ', currentHeading + degrees);
         if (turtle) {
-            turtle.style.transform = 'rotate(' + (currentHeading) + 'deg)';
+            turtle.style.transform = 'rotate(' + (currentHeading + degrees) + 'deg)';
         }
     }
 

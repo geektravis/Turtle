@@ -5,7 +5,7 @@
         </button>
         <ul class="dropdown-menu" role="menu">
             <li ng-repeat="degrees in [30,45,60,90,120,135,150]">
-                <div ng-click="addLeft(degrees)">{{degrees}}</div>
+                <div ng-mouseover="orient(-1*degrees)" ng-mouseleave="orient()" ng-click="addLeft(degrees)">{{degrees}}</div>
             </li>
         </ul>
     </div>
@@ -25,7 +25,7 @@
         </button>
         <ul class="dropdown-menu" role="menu">
             <li ng-repeat="degrees in [30,45,60,90,120,135,150]">
-                <div ng-click="addRight(degrees)">{{degrees}}</div>
+                <div ng-mouseover="orient(degrees)" ng-mouseleave="orient()"  ng-click="addRight(degrees)">{{degrees}}</div>
             </li>
         </ul>
     </div>
