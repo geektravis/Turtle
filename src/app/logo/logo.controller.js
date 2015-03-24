@@ -1,13 +1,20 @@
     angular.module('logo').controller('LogoController', function ($state, $scope, commandList, turtleCanvasDraw) {
         $scope.commands = commandList.list();
         $scope.addMove = function (distance) {
-            return commandList.addMove(distance);
+            var command = commandList.addMove(distance);
+            turtleCanvasDraw.draw(commandList.list());
+            return command;
+
         };
         $scope.addLeft = function (degrees) {
-            return commandList.addLeft(degrees);
+            var command = commandList.addLeft(degrees);
+            turtleCanvasDraw.draw(commandList.list());
+            return command;
         };
         $scope.addRight = function (degrees) {
-            return commandList.addRight(degrees);
+            var command = commandList.addRight(degrees);
+            turtleCanvasDraw.draw(commandList.list());
+            return command;
         };
         $scope.testMe = function() {
             console.log('testme!');
