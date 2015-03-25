@@ -44,6 +44,8 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
             var canvas = $("canvas")[0];
             ctx.clearRect ( 0 , 0 , canvas.width, canvas.height );
         }
+        orient();
+        move(0);
     }
 
 

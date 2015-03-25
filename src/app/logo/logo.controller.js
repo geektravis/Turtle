@@ -16,8 +16,10 @@
             turtleCanvasDraw.draw(commandList.list());
             return command;
         };
-        $scope.testMe = function() {
-            console.log('testme!');
+        $scope.clearCanvas = function() {
+            turtleCanvasDraw.clear();
+            commandList.clear();
+            $scope.commands = [];
         };
         $scope.orient = turtleCanvasDraw.orient;
         function dragControlListeners() {
