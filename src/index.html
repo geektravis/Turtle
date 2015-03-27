@@ -13,6 +13,8 @@
 
     <!-- compiled JavaScript --><% scripts.forEach(function(file) { %>
     <script type="text/javascript" src="<%= file %>"></script><% }); %>
+    <!-- leave this in so it works with Ionic -->
+      <script src="cordova.js"></script>
   </head>
   <body>
     <div class="container" ui-view="main"></div>
