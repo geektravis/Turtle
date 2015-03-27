@@ -89,6 +89,7 @@ angular.module('logo').factory('turtleCanvasDraw', function (commandList) {
         console.log('orienting to: ', currentHeading + degrees);
         if (turtle) {
             turtle.style.transform = 'rotate(' + (currentHeading + degrees) + 'deg)';
+            turtle.style['-webkit-transform'] = 'rotate(' + (currentHeading + degrees) + 'deg)';
         }
     }
 
